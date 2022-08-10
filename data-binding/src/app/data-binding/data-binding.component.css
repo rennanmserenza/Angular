@@ -1,0 +1,25 @@
+/* até aula 10 */
+article {
+	width: 500px;
+	margin: 10px auto;
+}
+
+h3,
+div,
+select {
+	text-align: center;
+}
+
+label {
+	font-size: 20px;
+	margin-right: 8px;
+}
+
+/* .event-binding {
+	margin: 10px;
+}
+
+.highlight {
+	background-color: yellowgreen;
+	font-weight: bold;
+} */
