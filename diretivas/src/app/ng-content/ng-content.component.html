@@ -1,1 +1,10 @@
-<p>ng-content works!</p>
+<div class="card">
+	<div class="card-header">
+		<ng-content select=".title"></ng-content>
+	</div>
+	<div class="card-body">
+		<p class="card-text">
+			<ng-content select=".body"></ng-content>
+		</p>
+	</div>
+</div>
