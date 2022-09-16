@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-operador-elvis',
-  templateUrl: './operador-elvis.component.html',
-  styleUrls: ['./operador-elvis.component.css']
+	selector: 'app-operador-elvis',
+	templateUrl: './operador-elvis.component.html',
+	styleUrls: ['./operador-elvis.component.css'],
 })
-export class OperadorElvisComponent implements OnInit {
+export class OperadorElvisComponent {
+	tarefa: any = {
+		desc: 'Descrição da tarefa',
+		responsavel: null,
+	};
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	constructor() {}
 }
