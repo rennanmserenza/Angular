@@ -1,4 +1,4 @@
-<p appFundoAmarelo>Texto com fundo amarelo.</p>
+<!-- <p appFundoAmarelo>Texto com fundo amarelo.</p>
 
 <button class="btn btn-default" appFundoAmarelo>Botão com fundo amarelo</button>
 
@@ -10,4 +10,29 @@
 
 <p [appHighlight]="'red'" [defaultColor]="'gray'">
 	Texto com highlight com cores customizadas.
-</p>
+</p> -->
+
+
+
+<div *ngIf="cursos.length > 0 && mostrarCursos">
+	<h6>Lista de Cursos Aqui!</h6>
+
+	<ul>
+		<li *ngFor="let curso of cursos, let i = index">
+			{{ i }} - {{ curso }}
+		</li>
+	</ul>
+</div>
+<div *ngIf="cursos.length === 0 && mostrarCursos">Não existem cursos a ser listado.</div>
+<div *ngElse="mostrarCursos">Você não possui permissão para visualizar cursos.</div>
+
+<button (click)="toogleMostrarCurso();">Mostrar ou esconder cursos</button>
+
+
+<!-- Não funciona no novo angular. -->
+<!--
+<template *[ngElse]="mostrarCursos">
+	<div>
+		Você não possui permissão para visualizar cursos.
+	</div>
+</template> -->
