@@ -1,1 +1,10 @@
-<p>exemplos-pipes works!</p>
+<h5>Exemplos de Pipes</h5>
+
+<p>Título: {{ livro.titulo | titlecase }} </p>
+<p>Avaliação: {{ livro.rating | number: '1.1-2' }} </p>
+<p>Páginas: {{ livro.numeroPaginas | number }} </p>
+<p>Preço: {{ livro.preco | currency: 'BRL' }} </p>
+<p>Data Lançamento: {{ livro.dataLancamento | date: 'dd/MM/YYYY' }} </p>
+<p>Url: {{ livro.url }} </p>
+<br>
+<p>Livro: {{ livro | json }} </p>
