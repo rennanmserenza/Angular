@@ -9,7 +9,7 @@ export class CamelCasePipe implements PipeTransform {
 		let resultado = ' ';
 
 		for (let v of values) {
-			resultado += this.captalize(v);
+			resultado += this.captalize(v) + ' ';
 		}
 		return resultado;
 	}
