@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'app-exemplos-pipes',
@@ -17,6 +17,8 @@ export class ExemplosPipesComponent implements OnInit {
 	};
 
 	livros: string[] = ['Java', 'Angular 2'];
+
+	filtro: string = '';
 
 	constructor() {}
 
