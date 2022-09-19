@@ -1,1 +1,10 @@
-<p>criar-curso works!</p>
+<h5>Compartilhando um serviço entre componentes</h5>
+
+<input type="text" #cursoInput>
+<button (click)="onAddCurso(cursoInput.value)">Adiciona Curso</button>
+
+<ul>
+	<li *ngFor="let curso of cursos">
+		{{ curso }}
+	</li>
+</ul>
