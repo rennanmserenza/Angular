@@ -1,10 +1,39 @@
-import { Directive } from '@angular/core';
+import {
+	Directive,
+	HostListener,
+	HostBinding,
+	Input,
+	OnInit,
+} from '@angular/core';
 
 @Directive({
-  selector: '[appHighlight]'
+	selector: '[appHighlight]',
 })
-export class HighlightDirective {
+export class HighlightDirective implements OnInit {
+	@HostListener('mouseenter')
+	onMouseOver() {
+		this.backgroundColor = this.highlightColor;
+	}
 
-  constructor() { }
+	@HostListener('mouseleave')
+	onMouseLeave() {
+		this.backgroundColor = this.defaultColor;
+	}
 
+	@HostBinding('style.backgroundColor') get SetColor() {
+		return this.backgroundColor;
+	}
+
+	private backgroundColor: string;
+
+	@Input() defaultColor: string = 'white';
+	@Input('appHighlight') highlightColor: string = 'blue';
+
+	constructor() {
+		this.backgroundColor = '';
+	}
+
+	ngOnInit() {
+		this.backgroundColor = this.defaultColor;
+	}
 }
