@@ -1,5 +1,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
+import { interval, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-exemplos-pipes',
@@ -39,6 +41,12 @@ export class ExemplosPipesComponent implements OnInit {
 				: false;
 		});
 	}
+
+	valorAsync = new Promise((resolve, reject) => {
+		setTimeout(() => resolve('Valor assíncrono'), 2000);
+	});
+
+	valorAsync2 = interval(3000).pipe(map(() => 'Valor assíncrono 2'));
 
 	constructor() {}
 
