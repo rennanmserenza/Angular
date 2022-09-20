@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-exemplos-pipes',
@@ -19,6 +19,12 @@ export class ExemplosPipesComponent implements OnInit {
 	livros: string[] = ['Java', 'Angular 2'];
 
 	filtro: string = '';
+
+	addCurso(valor: string) {
+		console.log(`Adicionando ${valor}`);
+		this.livros.push(valor);
+		console.log(`lista de livro: ${this.livros}`);
+	}
 
 	constructor() {}
 

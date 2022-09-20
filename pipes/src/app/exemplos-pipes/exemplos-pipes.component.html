@@ -11,9 +11,20 @@
 
 <input type="text" [(ngModel)]="filtro" />
 
+<br>
+<input type="text" #novoValor />
+<button (click)="addCurso(novoValor.value)">Adicionar curso</button>
 
+<!-- A função de PIPE Puro não deixa o array atualizar em tela. -->
+<!-- PIPE Puro não lê atualização dos dados da lista de livros. -->
 <ul>
 	<li *ngFor="let liv of livros | filtroArray: filtro ">
+		{{ liv }}
+	</li>
+</ul>
+
+<ul>
+	<li *ngFor="let liv of livros">
 		{{ liv }}
 	</li>
 </ul>
