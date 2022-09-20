@@ -21,9 +21,23 @@ export class ExemplosPipesComponent implements OnInit {
 	filtro: string = '';
 
 	addCurso(valor: string) {
-		console.log(`Adicionando ${valor}`);
 		this.livros.push(valor);
-		console.log(`lista de livro: ${this.livros}`);
+	}
+
+	obterCursos() {
+		if (
+			this.livros.length === 0 ||
+			this.filtro === undefined ||
+			this.filtro.trim() === ''
+		) {
+			return this.livros;
+		}
+
+		return this.livros.filter((v: string) => {
+			return v.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0
+				? true
+				: false;
+		});
 	}
 
 	constructor() {}

@@ -1,4 +1,4 @@
-<h5>Exemplos de Pipes</h5>
+<!-- <h5>Exemplos de Pipes</h5>
 
 <p>Título: {{ livro.titulo | titlecase | camelCase }} </p>
 <p>Avaliação: {{ livro.rating | number: '1.1-2' }} </p>
@@ -7,7 +7,7 @@
 <p>Data Lançamento: {{ livro.dataLancamento | date }} </p>
 <p>Url: {{ livro.url }} </p>
 <br>
-<p>Livro: {{ livro | json }} </p>
+<p>Livro: {{ livro | json }} </p> -->
 
 <input type="text" [(ngModel)]="filtro" />
 
@@ -17,14 +17,25 @@
 
 <!-- A função de PIPE Puro não deixa o array atualizar em tela. -->
 <!-- PIPE Puro não lê atualização dos dados da lista de livros. -->
+<h5>PIPE PURO</h5>
 <ul>
 	<li *ngFor="let liv of livros | filtroArray: filtro ">
 		{{ liv }}
 	</li>
 </ul>
 
+<br>
+<h5>PIPE IMPURO</h5>
 <ul>
-	<li *ngFor="let liv of livros">
+	<li *ngFor="let liv of livros | filtroArrayImpuro: filtro">
+		{{ liv }}
+	</li>
+</ul>
+
+<br>
+<h5>Utilizando filtros corretamento nos projetos</h5>
+<ul>
+	<li *ngFor="let liv of obterCursos()">
 		{{ liv }}
 	</li>
 </ul>

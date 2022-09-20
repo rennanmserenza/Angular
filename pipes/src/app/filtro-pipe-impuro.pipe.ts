@@ -1,12 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+/* eslint-disable @angular-eslint/use-pipe-transform-interface */
+import { Pipe } from '@angular/core';
+
+import { FiltroArrayPipe } from './filtro-array.pipe';
 
 @Pipe({
-  name: 'filtroPipeImpuro'
+	name: 'filtroArrayImpuro',
+	pure: false,
 })
-export class FiltroPipeImpuroPipe implements PipeTransform {
-
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
-
-}
+export class FiltroPipeImpuroPipe extends FiltroArrayPipe {}
