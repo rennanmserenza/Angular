@@ -7,6 +7,7 @@ import { CamelCasePipe } from './camel-case.pipe';
 import { SettingsService } from './settings.service';
 import { FiltroArrayPipe } from './filtro-array.pipe';
 import { FormsModule } from '@angular/forms';
+import { FiltroPipeImpuroPipe } from './filtro-pipe-impuro.pipe';
 
 @NgModule({
 	declarations: [
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 		ExemplosPipesComponent,
 		CamelCasePipe,
 		FiltroArrayPipe,
+  FiltroPipeImpuroPipe,
 	],
 	imports: [BrowserModule, FormsModule],
 	providers: [
