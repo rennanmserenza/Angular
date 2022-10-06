@@ -13,6 +13,10 @@
 				<li class="nav-item">
 					<a class="nav-link" routerLink="/cursos" routerLinkActive="active">Cursos</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" [routerLink]="['curso', idCurso.value]" routerLinkActive="active">Curso com
+						ID</a>
+				</li>
 			</ul>
 			<form class="d-flex" role="search">
 				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -22,5 +26,8 @@
 	</div>
 </nav>
 <div class="container">
+	<p>Entre com o ID do Curso</p>
+	<input #idCurso>
+
 	<router-outlet></router-outlet>
 </div>
