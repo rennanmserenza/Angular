@@ -11,7 +11,8 @@
 					<a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" routerLink="/cursos" routerLinkActive="active">Cursos</a>
+					<a class="nav-link" routerLink="/cursos" routerLinkActive="active"
+						[queryParams]="{ pagina: 1 }">Cursos</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" [routerLink]="['curso', idCurso.value]" routerLinkActive="active">Curso com
@@ -27,7 +28,7 @@
 </nav>
 <div class="container">
 	<p>Entre com o ID do Curso</p>
-	<input #idCurso>
+	<input class="form-control me-2" #idCurso>
 
 	<router-outlet></router-outlet>
 </div>
