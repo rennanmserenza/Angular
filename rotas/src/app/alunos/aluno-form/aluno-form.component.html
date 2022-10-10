@@ -1,1 +1,20 @@
-<p>aluno-form works!</p>
+<h5>Criar/Editar Aluno</h5>
+
+<div class="col-sm-12">
+	<div class="row">
+		<div class="form-floating">
+			<input disabled [(ngModel)]="aluno.id" id="disabled" type="text" class="form-control">
+			<label for="disabled" class="active">#</label>
+		</div>
+
+		<div class="form-floating">
+			<input type="text" [(ngModel)]="aluno.nome" class="form-control" id="nome">
+			<label for="nome" class="active">Nome</label>
+		</div>
+
+		<div class="form-floating">
+			<input [(ngModel)]="aluno.email" type="email" class="form-control" id="email">
+			<label for="email" class="active">Email</label>
+		</div>
+	</div>
+</div>
