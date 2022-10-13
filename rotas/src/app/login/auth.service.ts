@@ -23,6 +23,10 @@ export class AuthService {
 	}
 
 	mostrarMenu() {
-		this.mostrarMenuEmitter.emit(this.usuarioAutenticado);
+		this.mostrarMenuEmitter.emit(this.usuarioEstaAutenticado());
+	}
+
+	usuarioEstaAutenticado() {
+		return this.usuarioAutenticado;
 	}
 }
