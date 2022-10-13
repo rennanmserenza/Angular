@@ -12,12 +12,27 @@ import { AlunosService } from '../alunos.service';
 })
 export class AlunoFormComponent implements OnInit {
 	aluno: any;
+	formMudou: boolean = false;
 	inscricao: Subscription = new Subscription();
 
 	constructor(
 		private route: ActivatedRoute,
 		private alunosService: AlunosService
 	) {}
+
+	onInput() {
+		this.formMudou = true;
+	}
+
+	podeMudarRota() {
+		if (this.formMudou) {
+			confirm(
+				'Os dados foram alterados, se você sair da página irá perde-los, deseja prosseguir?'
+			);
+		}
+
+		return true;
+	}
 
 	ngOnInit(): void {
 		this.inscricao = this.route.params.subscribe((params: any) => {
