@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="login-panel">
+	<div class="row mb-3 d-flex justify-content-center">
+		<label for="usuario" class="col-sm-1 col-form-label">Usuário</label>
+		<div class="col-sm-2">
+			<input [(ngModel)]="usuario.nome" type="text" class="form-control" id="usuario">
+		</div>
+	</div>
+	<div class="row mb-3 d-flex justify-content-center">
+		<label for="senha" class="col-sm-1 col-form-label">Senha</label>
+		<div class="col-sm-2">
+			<input [(ngModel)]="usuario.senha" type="password" class="form-control" id="senha">
+		</div>
+	</div>
+	<div class="row mb-3 d-flex justify-content-center">
+		<button type="submit" class="btn btn-outline-primary col-sm-2" (click)="fazerLogin()">Entrar</button>
+	</div>
+</div>
