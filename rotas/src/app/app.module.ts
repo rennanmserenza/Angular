@@ -8,18 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
-import { CursosModule } from './cursos/cursos.module';
-import { AlunosModule } from './alunos/alunos.module';
-
 @NgModule({
 	declarations: [AppComponent, LoginComponent, HomeComponent],
-	imports: [
-		BrowserModule,
-		NgbModule,
-		AlunosModule,
-		CursosModule,
-		AppRoutingModule,
-	],
+	imports: [BrowserModule, NgbModule, AppRoutingModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })
