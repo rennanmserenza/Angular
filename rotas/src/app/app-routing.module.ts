@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.auth.guard';
 import { AlunosGuard } from './alunos/guards/alunos.auth.guard';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 const routes: Routes = [
 	{
@@ -26,13 +27,22 @@ const routes: Routes = [
 			import('./alunos/alunos.module').then((x) => x.AlunosModule),
 	},
 	{
-		path: '',
+		path: 'login',
+		component: LoginComponent,
+	},
+	{
+		path: 'home',
 		canActivate: [AuthGuard],
 		component: HomeComponent,
 	},
 	{
-		path: 'login',
-		component: LoginComponent,
+		path: '',
+		redirectTo: '/home',
+		pathMatch: 'full',
+	},
+	{
+		path: '**',
+		component: PaginaNaoEncontradaComponent,
 	},
 ];
 

@@ -14,9 +14,10 @@ import { AuthService } from './login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.auth.guard';
 import { AlunosGuard } from './alunos/guards/alunos.auth.guard';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginComponent, HomeComponent],
+	declarations: [AppComponent, LoginComponent, HomeComponent, PaginaNaoEncontradaComponent],
 	imports: [BrowserModule, NgbModule, FormsModule, AppRoutingModule],
 	providers: [AuthService, AuthGuard, CursosGuard, AlunosGuard],
 	bootstrap: [AppComponent],
