@@ -10,9 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './login/auth.service';
+
 import { AuthGuard } from './guards/auth.guard';
 import { CursosGuard } from './guards/cursos.auth.guard';
-import { AlunosGuard } from './guards/alunos.auth.guard';
+import { AlunosGuard } from './alunos/guards/alunos.auth.guard';
 
 @NgModule({
 	declarations: [AppComponent, LoginComponent, HomeComponent],

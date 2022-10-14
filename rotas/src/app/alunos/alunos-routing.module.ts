@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlunosComponent } from './alunos.component';
 import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
 import { AlunoFormComponent } from './aluno-form/aluno-form.component';
-import { AlunosDeactivateGuard } from '../guards/alunos-deactivate.auth.guard';
+import { AlunosDeactivateGuard } from './guards/alunos-deactivate.auth.guard';
+import { AlunoDetalheResolver } from './guards/aluno-detalhe.resolver';
 
 const alunosRoutes: Routes = [
 	{
@@ -18,6 +19,7 @@ const alunosRoutes: Routes = [
 			{
 				path: ':id',
 				component: AlunoDetalheComponent,
+				resolve: { aluno: AlunoDetalheResolver },
 			},
 			{
 				path: ':id/editar',

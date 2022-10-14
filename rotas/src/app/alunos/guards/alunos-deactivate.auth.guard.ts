@@ -5,8 +5,8 @@ import {
 	RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IFormCanDeactivate } from './form-candeactivate.interface';
-import { AlunoFormComponent } from '../alunos/aluno-form/aluno-form.component';
+import { IFormCanDeactivate } from '../../guards/form-candeactivate.interface';
+import { AlunoFormComponent } from '../aluno-form/aluno-form.component';
 
 @Injectable({ providedIn: 'root' })
 export class AlunosDeactivateGuard

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlunosService } from '../alunos.service';
+import { Aluno } from '../aluno';
 
 @Component({
 	selector: 'app-aluno-detalhe',
@@ -9,7 +10,7 @@ import { AlunosService } from '../alunos.service';
 	styleUrls: ['./aluno-detalhe.component.css'],
 })
 export class AlunoDetalheComponent implements OnInit {
-	aluno: any;
+	aluno: Aluno | undefined;
 	inscricao: Subscription = new Subscription();
 
 	constructor(
@@ -19,14 +20,13 @@ export class AlunoDetalheComponent implements OnInit {
 	) {}
 
 	editarContato() {
-		this.router.navigate(['/alunos', this.aluno.id, 'editar']);
+		this.router.navigate(['/alunos', this.aluno?.id, 'editar']);
 	}
 
 	ngOnInit(): void {
-		this.inscricao = this.route.params.subscribe((params: any) => {
-			let id = params['id'];
-
-			this.aluno = this.alunosService.getAluno(id);
+		this.inscricao = this.route.data.subscribe((info: any) => {
+			console.log(info);
+			this.aluno = info.aluno;
 		});
 	}
 
