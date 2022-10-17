@@ -8,20 +8,26 @@ import { AppComponent } from './app.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { LoginComponent } from './core/login/login.component';
+import { DataFormComponent } from './data-form/data-form.component';
+import { HomeComponent } from './core/home/home.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-  TemplateFormComponent,
-  PaginaNaoEncontradaComponent,
-  LoginComponent
+		HomeComponent,
+		LoginComponent,
+		PaginaNaoEncontradaComponent,
+		TemplateFormComponent,
+		DataFormComponent,
 	],
 	imports: [
 		TooltipModule.forRoot(),
 		BrowserModule,
-		AppRoutingModule
+		FormsModule,
+		AppRoutingModule,
 	],
 	providers: [],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
