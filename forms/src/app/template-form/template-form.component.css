@@ -1,0 +1,7 @@
+.ng-touched.ng-invalid:not(form) {
+	border: 1px solid red;
+}
+
+.ng-touched.ng-valid:not(form) {
+	border: 1px solid rgb(12, 199, 68);
+}

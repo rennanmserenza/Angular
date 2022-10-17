@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateFormComponent implements OnInit {
 	usuario: any = {
-		nome: 'Rennan',
+		nome: null,
 		email: 'rennan@teste.com',
 	};
 
