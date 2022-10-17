@@ -1,17 +1,42 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+<form #form="ngForm" class="was-validation" novalidate (ngSubmit)="onSubmit(form)">
 	<br>
 	<div class="form-group col-6">
-		<label for="nome">Nome</label>
+		<label for="nome" class="form-label">Nome</label>
 		<input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" [(ngModel)]="usuario.nome"
-			required #nome>
-		<div>{{ nome.className }}</div>
+			[ngClass]="{ 'is-invalid': form.submitted && nome.invalid }" pattern="^[a-zA-Z\s]*$" #nome="ngModel"
+			required>
+		<div class="invalid-feedback" *ngIf="form.submitted && nome.invalid">
+			<p *ngIf="nome?.errors?.['required']">
+				Campo Obrigatório</p>
+			<p *ngIf="nome?.errors?.['pattern']">
+				Conteúdo Inválido - Apenas Letras (a-z/A-Z)</p>
+		</div>
+		<!-- <div class="requiredText" *ngIf="nome.invalid && nome.touched && (nome.value == null || nome.value == '')">Campo
+			Obrigatório</div>
+		<div class="requiredText" *ngIf="nome.invalid && nome.touched && (nome.value != null && nome.value != '')">
+			Conteúdo Inválido</div> -->
 	</div>
+
+
+
+
 	<div class="form-group col-6">
-		<label for="email">Email</label>
+		<label for="email" class="form-label">Email</label>
 		<input type="email" class="form-control" id="email" placeholder="nome@email.com" name="email"
-			[(ngModel)]="usuario.email" required email #email>
+			[ngClass]="{ 'is-invalid': form.submitted && email.invalid }" [(ngModel)]="usuario.email" #email="ngModel"
+			required email>
+		<div class="invalid-feedback" *ngIf="form.submitted && email.invalid">
+			<p *ngIf="email?.errors?.['required']">
+				Campo Obrigatório</p>
+			<p *ngIf="email?.errors?.['email']">
+				Conteúdo Inválido</p>
+		</div>
+		<!-- <div class="requiredText" *ngIf="email.invalid && email.touched && (email.value == null || email.value == '')">
+			Campo Obrigatório</div>
+		<div class="requiredText" *ngIf="email.invalid && email.touched && (email.value != null && email.value != '')">
+			Conteúdo Inválido</div> -->
 	</div>
-	<div>{{ email.className }}</div>
+
 	<br>
 	<button type="submit" class="btn btn-dark">Enviar</button>
 </form>
