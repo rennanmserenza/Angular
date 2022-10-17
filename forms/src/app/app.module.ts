@@ -11,6 +11,7 @@ import { LoginComponent } from './core/login/login.component';
 import { DataFormComponent } from './data-form/data-form.component';
 import { HomeComponent } from './core/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { TemplateFormModule } from './template-form/template-form.module';
 
 @NgModule({
 	declarations: [
@@ -18,7 +19,6 @@ import { FormsModule } from '@angular/forms';
 		HomeComponent,
 		LoginComponent,
 		PaginaNaoEncontradaComponent,
-		TemplateFormComponent,
 		DataFormComponent,
 	],
 	imports: [
@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 		BrowserModule,
 		FormsModule,
 		AppRoutingModule,
+		TemplateFormModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
