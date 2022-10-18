@@ -1,0 +1,17 @@
+<div class="card" style="margin-top: 20px;" *ngIf="form">
+	<div class="card-header">Detalhes do form</div>
+	<div class="card-body">
+		<section>
+			Form válido:
+			<pre>{{ form.valid }}</pre>
+		</section>
+		<section>
+			Form submetido:
+			<pre>{{ form.submitted }}</pre>
+		</section>
+		<section>
+			Valores: <br />
+		</section>
+		<pre>{{ form.value | json }}</pre>
+	</div>
+</div>

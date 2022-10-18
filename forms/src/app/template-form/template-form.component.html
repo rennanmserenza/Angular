@@ -1,42 +1,142 @@
-<form #form="ngForm" class="was-validation" novalidate (ngSubmit)="onSubmit(form)">
+<form #form="ngForm" class="row g-3 align-items-center" novalidate (ngSubmit)="onSubmit(form)">
 	<br>
-	<div class="form-group col-6">
-		<label for="nome" class="form-label">Nome</label>
-		<input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" [(ngModel)]="usuario.nome"
-			[ngClass]="{ 'is-invalid': form.submitted && nome.invalid }" pattern="^[a-zA-Z\s]*$" #nome="ngModel"
-			required>
-		<div class="invalid-feedback" *ngIf="form.submitted && nome.invalid">
-			<p *ngIf="nome?.errors?.['required']">
-				Campo Obrigatório</p>
-			<p *ngIf="nome?.errors?.['pattern']">
-				Conteúdo Inválido - Apenas Letras (a-z/A-Z)</p>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<label for="nome" class="form-label">Nome</label>
 		</div>
-		<!-- <div class="requiredText" *ngIf="nome.invalid && nome.touched && (nome.value == null || nome.value == '')">Campo
-			Obrigatório</div>
-		<div class="requiredText" *ngIf="nome.invalid && nome.touched && (nome.value != null && nome.value != '')">
-			Conteúdo Inválido</div> -->
+		<div class="col-sm-12">
+			<input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" [(ngModel)]="usuario.nome"
+				[ngClass]="{
+					'is-invalid': nome.invalid && (form.submitted || nome.touched),
+					'is-valid': nome.valid && (form.submitted || nome.touched)
+				}" pattern="^[a-zA-Z\s]*$" #nome="ngModel" required>
+			<div class="invalid-feedback" *ngIf="nome.invalid">
+				<p *ngIf="nome?.errors?.['required']">
+					Campo Obrigatório</p>
+				<p *ngIf="nome?.errors?.['pattern']">
+					Conteúdo Inválido - Apenas Letras (a-z/A-Z)</p>
+			</div>
+		</div>
 	</div>
 
-
-
-
-	<div class="form-group col-6">
-		<label for="email" class="form-label">Email</label>
-		<input type="email" class="form-control" id="email" placeholder="nome@email.com" name="email"
-			[ngClass]="{ 'is-invalid': form.submitted && email.invalid }" [(ngModel)]="usuario.email" #email="ngModel"
-			required email>
-		<div class="invalid-feedback" *ngIf="form.submitted && email.invalid">
-			<p *ngIf="email?.errors?.['required']">
-				Campo Obrigatório</p>
-			<p *ngIf="email?.errors?.['email']">
-				Conteúdo Inválido</p>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<label for="email" class="form-label">Email</label>
 		</div>
-		<!-- <div class="requiredText" *ngIf="email.invalid && email.touched && (email.value == null || email.value == '')">
-			Campo Obrigatório</div>
-		<div class="requiredText" *ngIf="email.invalid && email.touched && (email.value != null && email.value != '')">
-			Conteúdo Inválido</div> -->
+		<div class="col-sm-12">
+			<input type="email" class="form-control" id="email" placeholder="nome@email.com" name="email" [ngClass]="{
+					'is-invalid': email.invalid && (form.submitted || email.touched)
+					, 'is-valid': email.valid && (form.submitted || email.touched)
+				}" [(ngModel)]="usuario.email" #email="ngModel" required email>
+			<div class="invalid-feedback" *ngIf="email.invalid">
+				<p *ngIf="email?.errors?.['required']">
+					Campo Obrigatório</p>
+				<p *ngIf="email?.errors?.['email']">
+					Conteúdo Inválido</p>
+			</div>
+		</div>
 	</div>
 
-	<br>
-	<button type="submit" class="btn btn-dark">Enviar</button>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-3">
+				<label for="cep" class="form-label">CEP</label>
+				<input type="text" name="cep" id="cep" class="form-control" placeholder="00000-000" [ngClass]="{
+						'is-invalid': cep.invalid && (form.submitted || cep.touched)
+						, 'is-valid': cep.valid && (form.submitted || cep.touched)
+					}" pattern="^[\d-]*$" #cep="ngModel" ngModel required>
+				<div class="invalid-feedback" *ngIf="cep.invalid">
+					<p *ngIf="cep?.errors?.['required']">
+						Campo Obrigatório</p>
+					<p *ngIf="cep?.errors?.['pattern']">
+						Conteúdo Inválido - Apenas Números (0-9)</p>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<label for="numero" class="form-label">Número</label>
+				<input type="text" name="numero" id="numero" class="form-control" placeholder="389" [ngClass]="{
+						'is-invalid': numero.invalid && (form.submitted || numero.touched)
+						, 'is-valid': numero.valid && (form.submitted || numero.touched)
+					}" pattern="^[\d]*$" #numero="ngModel" ngModel required>
+				<div class="invalid-feedback" *ngIf="numero.invalid">
+					<p *ngIf="numero?.errors?.['required']">
+						Campo Obrigatório</p>
+					<p *ngIf="numero?.errors?.['pattern']">
+						Conteúdo Inválido - Apenas Números (0-9)</p>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<label for="complemento" class="form-label">Complemento</label>
+				<input type="text" name="complemento" id="complemento" class="form-control" #complemento="ngModel"
+					ngModel>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-7">
+				<label for="rua" class="form-label">Rua</label>
+				<input type="text" class="form-control" id="rua" name="rua" [ngClass]="{
+					'is-invalid': form.submitted && (rua.value == null || rua.value == '')
+					, 'is-valid': form.submitted && (rua.value != null && rua.value != '')
+				}" #rua="ngModel" ngModel readonly>
+				<div class="invalid-feedback" *ngIf="form.submitted && (rua.value == null || rua.value == '')">
+					<p>Campo Obrigatório</p>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<label for="bairro" class="form-label">Bairro</label>
+				<input type="text" name="bairro" id="bairro" class="form-control" [ngClass]="{
+					'is-invalid': form.submitted && (bairro.value == null || bairro.value == '')
+					, 'is-valid': form.submitted && (bairro.value != null && bairro.value != '')
+				}" #bairro="ngModel" ngModel readonly>
+				<div class="invalid-feedback" *ngIf="form.submitted && (bairro.value == null || bairro.value == '')">
+					<p>Campo Obrigatório</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-5">
+				<label for="cidade" class="form-label">Cidade</label>
+				<input type="text" name="cidade" id="cidade" class="form-control" [ngClass]="{
+					'is-invalid': form.submitted && (cidade.value == null || cidade.value == '')
+					, 'is-valid': form.submitted && (cidade.value != null && cidade.value != '')
+				}" #cidade="ngModel" ngModel readonly>
+				<div class="invalid-feedback" *ngIf="form.submitted && (cidade.value == null || cidade.value == '')">
+					<p>Campo Obrigatório</p>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<label for="estado" class="form-label">Estado</label>
+				<input type="text" name="estado" id="estado" class="form-control" [ngClass]="{
+					'is-invalid': form.submitted && (estado.value == null || estado.value == '')
+					, 'is-valid': form.submitted && (estado.value != null && estado.value != '')
+				}" #estado="ngModel" ngModel readonly>
+				<div class="invalid-feedback" *ngIf="form.submitted && (estado.value == null || estado.value == '')">
+					<p>Campo Obrigatório</p>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<label for="uf" class="form-label">UF</label>
+				<input type="text" name="uf" id="uf" class="form-control" [ngClass]="{
+					'is-invalid': (form.submitted || uf.touched) && (uf.value == null || uf.value == '')
+					, 'is-valid': uf.touched && (uf.value != null && uf.value != '')
+				}" pattern="^[a-zA-Z]*$" #uf="ngModel" ngModel required>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-12">
+		<button type="submit" class="btn btn-dark" [disabled]="!form.valid">Enviar</button>
+	</div>
+
+	<app-form-debugger [form]="form"></app-form-debugger>
 </form>
