@@ -9,12 +9,12 @@ import { DataFormComponent } from './data-form/data-form.component';
 
 const routes: Routes = [
 	{
-		path: 'templateForm',
-		component: TemplateFormComponent,
-	},
-	{
 		path: 'dataForm',
 		component: DataFormComponent,
+	},
+	{
+		path: 'templateForm',
+		component: TemplateFormComponent,
 	},
 	{
 		path: 'login',
@@ -22,7 +22,7 @@ const routes: Routes = [
 	},
 	{
 		path: '',
-		redirectTo: 'templateForm',
+		redirectTo: 'dataForm',
 		pathMatch: 'full',
 	},
 	{

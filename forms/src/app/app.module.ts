@@ -9,8 +9,9 @@ import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada/pagin
 import { LoginComponent } from './core/login/login.component';
 import { DataFormComponent } from './data-form/data-form.component';
 import { HomeComponent } from './core/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateFormModule } from './template-form/template-form.module';
+import { DataFormModule } from './data-form/data-form.module';
 
 @NgModule({
 	declarations: [
@@ -18,14 +19,15 @@ import { TemplateFormModule } from './template-form/template-form.module';
 		HomeComponent,
 		LoginComponent,
 		PaginaNaoEncontradaComponent,
-		DataFormComponent,
 	],
 	imports: [
 		TooltipModule.forRoot(),
 		BrowserModule,
 		FormsModule,
+		ReactiveFormsModule,
 		AppRoutingModule,
 		TemplateFormModule,
+		DataFormModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
