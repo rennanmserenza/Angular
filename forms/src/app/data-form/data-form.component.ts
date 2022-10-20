@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+	FormBuilder,
+	FormControl,
+	FormGroup,
+	Validators,
+} from '@angular/forms';
 
 import { map } from 'rxjs/operators';
 
@@ -20,8 +25,11 @@ export class DataFormComponent implements OnInit {
 		// });
 
 		this.formulario = this.formBuilder.group({
-			nome: [null],
-			email: [null],
+			nome: [
+				null,
+				[Validators.required, Validators.pattern('^[a-zA-Zs]*$')],
+			],
+			email: [null, [Validators.required, Validators.email]],
 		});
 	}
 
@@ -35,8 +43,61 @@ export class DataFormComponent implements OnInit {
 				JSON.stringify(this.formulario.value)
 			)
 			.pipe(map((res) => res))
-			.subscribe((dados) => console.log(dados));
+			.subscribe(
+				(dados) => {
+					console.log(dados);
+					this.resetar();
+				},
+				(error: any) => alert(`Erro: ${error}`)
+			);
 
 		// console.log(this.usuario);
+	}
+
+	resetar() {
+		this.formulario.reset();
+	}
+
+	verificaValid(campo: any) {
+		console.log(`Campo: ${campo}, valido? ${campo.valid}`);
+		return campo.valid;
+	}
+
+	verificaSubmit(formulario: any) {
+		return this.formulario;
+	}
+
+	verificaCampoVazio(campo: any) {
+		let compoenente = this.formulario.get(campo);
+		return compoenente?.value == null || compoenente?.value == '';
+	}
+
+	verificaSubmitOrTouched(campo: any) {
+		// return this.verificaSubmit(formulario) || campo.touched;
+		return campo.touched;
+	}
+
+	verificaValidAndTouched(campo: any) {
+		let compoenente = this.formulario.get(campo);
+		return !this.verificaValid(compoenente) && compoenente?.touched;
+	}
+
+	aplicaCssValidacao(campo: any) {
+		let compoenente = this.formulario.get(campo);
+		console.log(compoenente);
+		return {
+			'is-invalid':
+				!this.verificaValid(compoenente) &&
+				this.verificaSubmitOrTouched(compoenente),
+			'is-valid':
+				this.verificaValid(compoenente) &&
+				this.verificaSubmitOrTouched(compoenente),
+		};
+	}
+
+	verificaErrors(campo: any, tipo: string) {
+		let compoenente = this.formulario.get(campo);
+
+		return compoenente?.errors?.[tipo];
 	}
 }

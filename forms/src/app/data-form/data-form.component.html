@@ -5,7 +5,14 @@
 			<label for="nome" class="form-label">Nome</label>
 		</div>
 		<div class="col-sm-12">
-			<input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+			<input type="text" class="form-control" [ngClass]="aplicaCssValidacao('nome')" id="nome" placeholder="Nome"
+				formControlName="nome">
+			<div class="invalid-feedback" *ngIf="verificaValidAndTouched('nome')">
+				<p *ngIf="verificaErrors('nome', 'required')">
+					Campo Obrigatório</p>
+				<p *ngIf="verificaErrors('nome', 'patern')">
+					Conteúdo Inválido - Apenas Letras (a-z/A-Z)</p>
+			</div>
 		</div>
 	</div>
 
@@ -14,11 +21,19 @@
 			<label for="email" class="form-label">Email</label>
 		</div>
 		<div class="col-sm-12">
-			<input type="email" class="form-control" id="email" placeholder="nome@email.com" formControlName="email">
+			<input type="email" class="form-control" [ngClass]="aplicaCssValidacao('email')" id="email"
+				placeholder="nome@email.com" formControlName="email">
+			<div class="invalid-feedback" *ngIf="verificaValidAndTouched('email')">
+				<p *ngIf="verificaErrors('email', 'required')">
+					Campo Obrigatório</p>
+				<p *ngIf="verificaErrors('email', 'email')">
+					Conteúdo Inválido</p>
+			</div>
 		</div>
 	</div>
-	<div class="col-12">
+	<div class="d-grid gap-2 d-md-flex justify-content-md">
 		<button type="submit" class="btn btn-dark">Enviar</button>
+		<button class="btn btn-primary" (click)="resetar()">Limpar</button>
 	</div>
 
 	<app-form-debugger [form]="formulario"></app-form-debugger>

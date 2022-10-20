@@ -76,18 +76,18 @@
 					<label for="rua" class="form-label">Rua</label>
 					<input type="text" class="form-control" id="rua" name="rua"
 						[ngClass]="aplicaCssValidacaoReadonly(rua, form)" #rua="ngModel" ngModel readonly>
-					<app-campo-control-erro class="invalid-feedback"
+					<app-campo-control-erro-readonly class="invalid-feedback"
 						[mostrarErro]="chamaTextoObrigatorioReadonly(rua, form)" mensagemErro="Campo Obrigatório">
-					</app-campo-control-erro>
+					</app-campo-control-erro-readonly>
 				</div>
 
 				<div class="col-md-5">
 					<label for="bairro" class="form-label">Bairro</label>
 					<input type="text" name="bairro" id="bairro" class="form-control"
 						[ngClass]="aplicaCssValidacaoReadonly(bairro, form)" #bairro="ngModel" ngModel readonly>
-					<app-campo-control-erro class="invalid-feedback"
+					<app-campo-control-erro-readonly class="invalid-feedback"
 						[mostrarErro]="chamaTextoObrigatorioReadonly(bairro, form)" mensagemErro="Campo Obrigatório">
-					</app-campo-control-erro>
+					</app-campo-control-erro-readonly>
 				</div>
 			</div>
 		</div>
@@ -98,18 +98,18 @@
 					<label for="cidade" class="form-label">Cidade</label>
 					<input type="text" name="cidade" id="cidade" class="form-control"
 						[ngClass]="aplicaCssValidacaoReadonly(cidade, form)" #cidade="ngModel" ngModel readonly>
-					<app-campo-control-erro class="invalid-feedback"
+					<app-campo-control-erro-readonly class="invalid-feedback"
 						[mostrarErro]="chamaTextoObrigatorioReadonly(cidade, form)" mensagemErro="Campo Obrigatório">
-					</app-campo-control-erro>
+					</app-campo-control-erro-readonly>
 				</div>
 
 				<div class="col-md-5">
 					<label for="estado" class="form-label">Estado</label>
 					<input type="text" name="estado" id="estado" class="form-control"
 						[ngClass]="aplicaCssValidacaoReadonly(estado, form)" #estado="ngModel" ngModel readonly>
-					<app-campo-control-erro class="invalid-feedback"
+					<app-campo-control-erro-readonly class="invalid-feedback"
 						[mostrarErro]="chamaTextoObrigatorioReadonly(estado, form)" mensagemErro="Campo Obrigatório">
-					</app-campo-control-erro>
+					</app-campo-control-erro-readonly>
 				</div>
 				<div class="col-md-2">
 					<label for="uf" class="form-label">UF</label>

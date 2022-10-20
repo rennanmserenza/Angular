@@ -7,9 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CampoControlErroComponent implements OnInit {
 	@Input() mostrarErro: boolean | undefined;
-	@Input() mensagemErro: string | undefined;
+	@Input() listaValidators: string[] | undefined;
+	@Input() mensagensErro: string[] | undefined;
 
 	constructor() {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		console.log(this.mostrarErro);
+		console.log(this.listaValidators);
+		console.log(this.mensagensErro);
+	}
 }
