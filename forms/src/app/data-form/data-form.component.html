@@ -10,7 +10,7 @@
 			<div class="invalid-feedback" *ngIf="verificaValidAndTouched('nome')">
 				<p *ngIf="verificaErrors('nome', 'required')">
 					Campo Obrigatório</p>
-				<p *ngIf="verificaErrors('nome', 'patern')">
+				<p *ngIf="verificaErrors('nome', 'pattern')">
 					Conteúdo Inválido - Apenas Letras (a-z/A-Z)</p>
 			</div>
 		</div>
@@ -31,6 +31,95 @@
 			</div>
 		</div>
 	</div>
+
+	<div formGroupName="endereco">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-3">
+					<label for="cep" class="form-label">CEP</label>
+					<input type="text" name="cep" id="cep" class="form-control" placeholder="00000-000"
+						formControlName="cep" [ngClass]="aplicaCssValidacao('endereco.cep')" (blur)="consultaCEP()">
+					<div class="invalid-feedback" *ngIf="verificaValidAndTouched('endereco.cep')">
+						<p *ngIf="verificaErrors('endereco.cep', 'required')">
+							Campo Obrigatório</p>
+						<p *ngIf="verificaErrors('endereco.cep', 'pattern')">
+							Conteúdo Inválido - Apenas Números (0-9)</p>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<label for="numero" class="form-label">Número</label>
+					<input type="text" name="numero" id="numero" class="form-control" placeholder="389"
+						formControlName="numero" [ngClass]="aplicaCssValidacao('endereco.numero')">
+					<div class="invalid-feedback" *ngIf="verificaValidAndTouched('endereco.numero')">
+						<p *ngIf="verificaErrors('endereco.numero', 'required')">
+							Campo Obrigatório</p>
+						<p *ngIf="verificaErrors('endereco.numero', 'pattern')">
+							Conteúdo Inválido - Apenas Números (0-9)</p>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<label for="complemento" class="form-label">Complemento</label>
+					<input type="text" name="complemento" id="complemento" class="form-control"
+						formControlName="complemento">
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-7">
+					<label for="rua" class="form-label">Rua</label>
+					<input type="text" class="form-control" id="rua" name="rua" formControlName="rua"
+						[ngClass]="aplicaCssValidacao('endereco.rua')">
+					<div class="invalid-feedback" *ngIf="verificaValidAndTouched('endereco.rua')">
+						<p *ngIf="verificaErrors('endereco.rua', 'required')">
+							Campo Obrigatório</p>
+					</div>
+				</div>
+
+				<div class="col-md-5">
+					<label for="bairro" class="form-label">Bairro</label>
+					<input type="text" name="bairro" id="bairro" class="form-control" formControlName="bairro"
+						[ngClass]="aplicaCssValidacao('endereco.bairro')">
+					<div class="invalid-feedback" *ngIf="verificaValidAndTouched('endereco.bairro')">
+						<p *ngIf="verificaErrors('endereco.bairro', 'required')">
+							Campo Obrigatório</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-5">
+					<label for="cidade" class="form-label">Cidade</label>
+					<input type="text" name="cidade" id="cidade" class="form-control" formControlName="cidade"
+						[ngClass]="aplicaCssValidacao('endereco.cidade')">
+					<div class="invalid-feedback" *ngIf="verificaValidAndTouched('endereco.cidade')">
+						<p *ngIf="verificaErrors('endereco.cidade', 'required')">
+							Campo Obrigatório</p>
+					</div>
+				</div>
+
+				<div class="col-md-5">
+					<label for="estado" class="form-label">Estado</label>
+					<input type="text" name="estado" id="estado" class="form-control" formControlName="estado"
+						[ngClass]="aplicaCssValidacao('endereco.estado')">
+					<div class="invalid-feedback" *ngIf="verificaValidAndTouched('endereco.estado')">
+						<p *ngIf="verificaErrors('endereco.estado', 'required')">
+							Campo Obrigatório</p>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<label for="uf" class="form-label">UF</label>
+					<input type="text" name="uf" id="uf" class="form-control" formControlName="uf">
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="d-grid gap-2 d-md-flex justify-content-md">
 		<button type="submit" class="btn btn-dark">Enviar</button>
 		<button class="btn btn-primary" (click)="resetar()">Limpar</button>
